@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>List of records</h1>
+  <table class="table table-striped table-bordered ">
+    <thead>
+    <tr>
+      <th class="text-center" scope="col">Select</th>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Modified</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr ng-repeat="record in vm.records track by record.id">
+      <td class="text-center"><input type="checkbox" ng-model="record.selected" ng-change="vm.checkSelections()"></td>
+      <td ng-bind="record.id"/>
+      <td><a ui-sref="record({id: record.id})">{{record.title}}</a></td>
+      <td title="{{::record.modified | dateTime}}" ng-bind="::record.modified | dateToNow"/>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <!--todo.. Bootstrap bug doesnt work in v4- they need to add new classes -->
+  <!--<div class="pagination">-->
+  <ul uib-pagination xtemplate-url="vm.getPaginationUrl" total-items="42" ng-model="vm.pagenumber" class="pagination"></ul>
+  <!--</div>-->
+  <wm-pagination class="float-right"></wm-pagination>
+
+  <!--Hard coded for UX demo-->
+  <!--<ul class="pagination float-right">-->
+    <!--<li class="page-item"><a class="page-link" href="#">Prev</a></li>-->
+    <!--<li class="page-item"><a class="page-link" href="#">1</a></li>-->
+    <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+    <!--<li class="page-item"><a class="page-link" href="#">Next</a></li>-->
+  <!--</ul>-->
+
+  <button type="button" class="btn btn-primary" ng-click="vm.showrecord()">Create record</button>
+  <button type="button" class="btn btn-primary" ng-click="vm.deleteSelections()" ng-disabled="!vm.hasSelected">Delete Selected</button>
+</div>

@@ -1,0 +1,26 @@
+/* Styles in src/style directory are applied to the whole page */
+body {
+  margin: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+/* Make first two columns minimum*/
+td:nth-child(-n+2) {
+  width: 1px;
+}
+
+/* Hack to fix bootstrap 4 modal*/
+.fade.in {
+  opacity: 1;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+}

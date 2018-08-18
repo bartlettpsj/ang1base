@@ -1,0 +1,27 @@
+{
+  "name": "notes-api",
+  "version": "1.0.0",
+  "description": "Small RESTFul API that handles request from Angular front end",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "export DEBUG= && mocha --timeout 10000 -b test/*.js --exit"
+  },
+  "author": "Paul Bartlett",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
+    "koa-bodyparser": "^4.2.1",
+    "koa-cors": "0.0.16",
+    "koa-router": "^7.4.0",
+    "koa-send": "^5.0.0",
+    "koa-static": "^5.0.0",
+    "lowdb": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
+  }
+}
